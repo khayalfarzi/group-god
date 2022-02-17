@@ -15,8 +15,8 @@ import java.util.List;
 @Builder
 public class Flight {
     private Integer flightId;
-    private Date localDate;
-    private Time localTime;
+    private Date date;
+    private Time time;
     private String destination;
     private int seats;
     private int fullSeats;
@@ -26,10 +26,10 @@ public class Flight {
         this.flightId = flightId;
     }
 
-    public Flight(Integer flightId, Date localDate, Time localTime, String destination, Integer seats, Integer fullSeats) {
+    public Flight(Integer flightId, Date date, Time time, String destination, Integer seats, Integer fullSeats) {
         this.flightId = flightId;
-        this.localDate = localDate;
-        this.localTime = localTime;
+        this.date = date;
+        this.time = time;
         this.destination = destination;
         this.seats = seats;
         this.fullSeats = fullSeats;
@@ -38,6 +38,6 @@ public class Flight {
     @Override
     public String toString() {
         return String.format("Flight - %d :\nlocalDate=%s, localTime=%s, destination=%s, emptySeats=%s",
-                getFlightId(), getLocalDate(), getLocalTime(), getDestination(), getSeats() - getFullSeats());
+                getFlightId(), this.getDate(), this.getTime(), getDestination(), getSeats() - getFullSeats());
     }
 }
